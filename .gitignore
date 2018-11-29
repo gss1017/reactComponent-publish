@@ -1,12 +1,7 @@
 
 # IDEA
 /.idea/*
-# !/.idea/jsLibraryMappings.xml
-!/.idea/misc.xml
-!/.idea/webResources.xml
-!/.idea/inspectionProfiles
-/.idea/inspectionProfiles/*
-!/.idea/inspectionProfiles/Project_Default.xml
+
 
 # test
-test.js
+/test.js

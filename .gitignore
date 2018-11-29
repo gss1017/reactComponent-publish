@@ -1,0 +1,10 @@
+
+# IDEA
+/.idea/*
+# !/.idea/jsLibraryMappings.xml
+!/.idea/misc.xml
+!/.idea/pkfare-is-web-app.iml
+!/.idea/webResources.xml
+!/.idea/inspectionProfiles
+/.idea/inspectionProfiles/*
+!/.idea/inspectionProfiles/Project_Default.xml

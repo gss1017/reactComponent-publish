@@ -1,7 +1,17 @@
+# MAC
+.DS_Store
+
+# Node.js and NPM
+node_modules/
+npm-debug.log
+npm-debug.log.*
 
 # IDEA
 /.idea/*
 
-
 # test
 /test.js
+
+# Dist
+*.tar.gz
+*.tgz

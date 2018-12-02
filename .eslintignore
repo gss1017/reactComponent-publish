@@ -1,4 +1,4 @@
-node_modules/
+/node_modules
 test/
 dist/
 webpack.config.js
@@ -6,3 +6,4 @@ webpack.config.js
 mock*
 test*
 Test*
+eslint.js

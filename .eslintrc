@@ -11,7 +11,7 @@
   // 避免访问未定义的环境变量而发出警告
   "env": {
     "es6": true,
-    "node": true,
+   // "node": true,
     "browser": true
   },
 
@@ -20,8 +20,8 @@
   "globals": {
     "document": true,
     "navigator": true,
-    "window": true,
-    "node": true
+    "window": true
+   // "node": true
   },
 
   // 继承第三方校验规则eslit-config-airbnb

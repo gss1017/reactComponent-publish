@@ -40,14 +40,19 @@ module.exports = {
             title: 'hello react',
             filename: 'index.html',
             template: path.resolve(SRC_PATH, 'index.html')
-        })
+        }),
+
+        //热更新插件
+        new webpack.HotModuleReplacementPlugin(),
     ],
-    devtool: 'cheap-module-source-map',
+    devtool: 'source-map',
     devServer: {
         clientLogLevel: 'info',
         hot: true,
+        hotOnly: true,
         port: 3001,
         progress: true,
+        historyApiFallback: true,
         open: 'http://localhost:3001'
     }
 };

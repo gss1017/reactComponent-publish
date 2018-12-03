@@ -8,7 +8,7 @@ const BUILD_PATH = path.resolve(ROOT_PATH, 'dist');
 
 module.exports = {
     mode: 'development',
-    entry: path.resolve(SRC_PATH, 'index.js'),
+    entry: path.resolve(SRC_PATH, 'index.jsx'),
     output: {
         filename: 'js/[name].bundle.js',
         path: BUILD_PATH
@@ -17,6 +17,9 @@ module.exports = {
       extensions: ['.js', '.jsx'] // webpack 编译时自动补充后缀
     },
     module: {
+      // 导出模块找不到 直接报错
+      strictExportPresence: true,
+
       rules: [
           {
               test: /\.(js|jsx)$/,
@@ -45,14 +48,14 @@ module.exports = {
         //热更新插件
         new webpack.HotModuleReplacementPlugin(),
     ],
-    devtool: 'source-map',
+    devtool: 'cheap-module-inline-source-map',
     devServer: {
         clientLogLevel: 'info',
         hot: true,
-        hotOnly: true,
-        port: 3001,
+       // hotOnly: true,
+        port: 5566,
         progress: true,
         historyApiFallback: true,
-        open: 'http://localhost:3001'
+        open: 'http://localhost:5566'
     }
 };

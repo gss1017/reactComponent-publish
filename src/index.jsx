@@ -7,6 +7,7 @@ class Index extends React.Component {
         console.log(1);
         return (
             <div>
+
                 <h1>
                     Hello React!
                     <span>

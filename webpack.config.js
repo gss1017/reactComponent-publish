@@ -161,6 +161,7 @@ module.exports = {
         open: 'http://localhost:5566'
     },
     optimization: {
+        runtimeChunk: 'single',
         // 分离 vendor 和 common，不再依赖 entry 手动指定 vendor
         splitChunks: {
             cacheGroups: {

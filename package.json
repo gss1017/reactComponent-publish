@@ -16,7 +16,7 @@
   "dependencies": {},
   "devDependencies": {
     "acorn": "^6.0.4",
-    "autoprefixer": "^9.4.0",
+    "autoprefixer": "^9.4.1",
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",

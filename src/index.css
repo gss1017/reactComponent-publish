@@ -1,0 +1,9 @@
+.color {
+    color: aquamarine;
+}
+
+.bg {
+    height: 300px;
+    background: url("./cc.jpeg");
+    background-size: contain;
+}

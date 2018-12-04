@@ -2,9 +2,11 @@
 test/
 dist/
 /webpack.config.js
+/webpack.prod.config.js
 .*/
 mock*
 test*
 Test*
 eslint.js
 /src/index.html
+postcss.config.js

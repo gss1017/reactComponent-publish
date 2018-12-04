@@ -1,6 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpack = require('webpack');
 
 const ROOT_PATH = path.resolve(__dirname);
@@ -61,10 +64,10 @@ const cssLoaders = [
 ];
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: path.resolve(SRC_PATH, 'index.jsx'),
     output: {
-        filename: 'js/[name]_[hash].bundle.js',
+        filename: 'js/[name]_[chunkhash].js',
         path: BUILD_PATH
     },
     resolve: {
@@ -96,7 +99,7 @@ module.exports = {
                   {
                       test: /\.scss$/,
                       use: [
-                          {loader: 'style-loader'},
+                          MiniCssExtractPlugin.loader,
                           ...scssLoaders
                       ]
                   },
@@ -104,7 +107,7 @@ module.exports = {
                       test: /\.css$/,
                       include: SRC_PATH,
                       use: [
-                          {loader: "style-loader"},
+                          MiniCssExtractPlugin.loader,
                           ...cssLoaders
                       ]
                   }
@@ -141,25 +144,50 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'hello react',
             filename: 'index.html',
-            template: path.resolve(SRC_PATH, 'index.html')
+            hash: true, //防止缓存
+            template: path.resolve(SRC_PATH, 'index.html'),
+            minify: {
+                removeAttributeQuotes:true // 压缩 去掉引号
+            }
         }),
 
-        //放在htmlWebpackPlugin的后面才能生效
         new InlineManifestWebpackPlugin(), //将运行时代码直接插入html文件中，因为这段代码非常少，这样做可以避免一次请求的开销
 
-        //热更新插件
-        new webpack.HotModuleReplacementPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'css/[name]_[contenthash].css',
+            chunkFilename: 'public/css/[name]_[contenthash].css'
+        }),
+
+        new WebpackParallelUglifyPlugin({ // 并行压缩
+            uglifyJS: {
+                output: {
+                    beautify: false, //不需要格式化
+                    comments: false //不保留注释
+                },
+                compress: {
+                    warnings: false, // 在UglifyJs删除没有用到的代码时不输出警告
+                    drop_console: true, // 删除所有的 `console` 语句，可以兼容ie浏览器
+                    collapse_vars: true, // 内嵌定义了但是只用到一次的变量
+                    reduce_vars: true // 提取出出现多次但是没有定义成变量去引用的静态值
+                }
+            }
+        }),
+
+        // 用于优化css文件
+        new OptimizeCssAssetsPlugin({
+            assetNameRegExp: styleRules,
+            cssProcessorOptions: {
+                safe: true,
+                autoprefixer: { disable: true }, // 这里是个大坑，稍后会提到
+                mergeLonghand: false,
+                discardComments: {
+                    removeAll: true // 移除注释
+                }
+            },
+            canPrint: true
+        })
     ],
     devtool: 'cheap-module-inline-source-map',
-    devServer: {
-        clientLogLevel: 'info',
-        hot: true,
-       // hotOnly: true,
-        port: 5566,
-        progress: true,
-        historyApiFallback: true,
-        open: 'http://localhost:5566'
-    },
     optimization: {
         // 分离 vendor 和 common，不再依赖 entry 手动指定 vendor
         splitChunks: {

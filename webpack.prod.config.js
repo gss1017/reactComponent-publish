@@ -66,7 +66,7 @@ const cssLoaders = [
 
 module.exports = {
     mode: 'production',
-    entry: path.resolve(SRC_PATH, 'index.jsx'),
+    entry: path.resolve(SRC_PATH, 'main.jsx'),
     output: {
         filename: 'js/[name]_[chunkhash].js',
         path: BUILD_PATH

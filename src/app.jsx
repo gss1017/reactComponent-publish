@@ -1,18 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Test from './components/Test';
 import style from './index.css';
 
-class Index extends React.Component {
+class App extends React.Component {
 
     render() {
-        console.log(1);
         return (
             <div className={style.bg}>
                 <h1 className={style.test}>
                     Hello React!
                     <span className={style.color}>
-                        你好 dd
+                        你好
                     </span>
                     <Test/>
                 </h1>
@@ -22,4 +20,4 @@ class Index extends React.Component {
 
 }
 
-ReactDOM.render(<Index/>, document.getElementById('root'));
+export default App;

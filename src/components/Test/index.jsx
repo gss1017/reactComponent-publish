@@ -5,7 +5,7 @@ class Test extends React.Component {
     render() {
         return (
             <div className={style.test}>
-                测试中。。。。
+                测试
             </div>
         );
     }

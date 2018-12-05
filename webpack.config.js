@@ -62,10 +62,12 @@ const cssLoaders = [
 
 module.exports = {
     mode: 'development',
-    entry: path.resolve(SRC_PATH, 'index.jsx'),
+    entry: [
+        './src/main.jsx'
+    ],
     output: {
         filename: 'js/[name]_[hash].bundle.js',
-        path: BUILD_PATH
+        path: BUILD_PATH,
     },
     resolve: {
       extensions: ['.js', '.jsx'] // webpack 编译时自动补充后缀
@@ -147,16 +149,15 @@ module.exports = {
         //放在htmlWebpackPlugin的后面才能生效
         new InlineManifestWebpackPlugin(), //将运行时代码直接插入html文件中，因为这段代码非常少，这样做可以避免一次请求的开销
 
-        //热更新插件
+        //热替换模块插件
+        new webpack.NamedModulesPlugin(), // 打包模块新的命名规则 便于第三方包的缓存
         new webpack.HotModuleReplacementPlugin(),
     ],
     devtool: 'cheap-module-inline-source-map',
     devServer: {
-        clientLogLevel: 'info',
-        hot: true,
-       // hotOnly: true,
+        clientLogLevel: 'info', // 打包log明细输出
         port: 5566,
-        progress: true,
+        hot: true,
         historyApiFallback: true,
         open: 'http://localhost:5566'
     },

@@ -57,7 +57,7 @@
     "webpack-parallel-uglify-plugin": "^1.1.0"
   },
   "scripts": {
-    "dev": "webpack-dev-server --hot",
+    "dev": "webpack-dev-server",
     "build": "rm -rf ./dist && webpack --config webpack.prod.config.js",
     "precommit": "lint-staged",
     "pack": "NODE_ENV=production npm pack"

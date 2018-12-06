@@ -1,6 +1,7 @@
 {
   "presets": ["env", "react"],
   "plugins": [
-    "transform-runtime"
+    "transform-runtime",
+    "syntax-dynamic-import"
   ]
 }

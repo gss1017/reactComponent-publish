@@ -13,6 +13,7 @@
   "env": {
     "es6": true,
    // "node": true,
+    "commonjs": true,
     "browser": true
   },
 
@@ -130,5 +131,6 @@
         "render"
       ]
     }]
+//    "global-require": "off" // 是否规定require必须出现在顶层
   }
 }

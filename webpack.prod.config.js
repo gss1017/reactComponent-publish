@@ -69,7 +69,8 @@ module.exports = {
     entry: path.resolve(SRC_PATH, 'main.jsx'),
     output: {
         filename: 'js/[name]_[chunkhash].js',
-        path: BUILD_PATH
+        path: BUILD_PATH,
+        chunkFilename: 'js/chunk-[name]_[chunkhash].js'
     },
     resolve: {
       extensions: ['.js', '.jsx'] // webpack 编译时自动补充后缀

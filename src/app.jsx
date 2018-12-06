@@ -4,6 +4,12 @@ import style from './index.css';
 
 class App extends React.Component {
 
+    componentDidMount() {
+        document.onclick = () => {
+            import('./a.js');
+        };
+    }
+
     render() {
         return (
             <div className={style.bg}>

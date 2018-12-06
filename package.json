@@ -1,18 +1,18 @@
 {
-  "name": "reactcomponent-publish",
+  "name": "react-project",
   "version": "1.0.0",
   "description": "'react组件包",
   "main": "test.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gss1017/reactComponent-publish.git"
+    "url": "git+https://github.com/gss1017/react-project.git"
   },
   "author": "gss",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gss1017/reactComponent-publish/issues"
+    "url": "https://github.com/gss1017/react-project/issues"
   },
-  "homepage": "https://github.com/gss1017/reactComponent-publish#readme",
+  "homepage": "https://github.com/gss1017/react-project#readme",
   "dependencies": {
     "react": "^16.6.3",
     "react-dom": "^16.6.3"

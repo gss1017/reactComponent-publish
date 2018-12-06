@@ -4,8 +4,9 @@
 
 .bg {
     height: 300px;
-    background: url("./cc.jpeg");
+    /*background: url("./cc.jpeg");*/
     background-size: contain;
+    background-color: azure;
 }
 
 .test {

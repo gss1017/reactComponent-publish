@@ -13,7 +13,10 @@
     "url": "https://github.com/gss1017/reactComponent-publish/issues"
   },
   "homepage": "https://github.com/gss1017/reactComponent-publish#readme",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
   "devDependencies": {
     "acorn": "^6.0.4",
     "autoprefixer": "^9.4.1",
@@ -44,8 +47,6 @@
     "postcss": "^7.0.6",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
     "sass": "^1.15.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",

@@ -6,7 +6,8 @@ class App extends React.Component {
 
     componentDidMount() {
         document.onclick = () => {
-            import('./a.js');
+            // 按需加载
+            import(/* webpackChunkName: "a" */'./a.js');
         };
     }
 

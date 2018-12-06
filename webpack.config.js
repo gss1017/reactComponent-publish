@@ -156,11 +156,11 @@ module.exports = {
     ],
     devtool: 'cheap-module-inline-source-map',
     devServer: {
-        clientLogLevel: 'info', // 打包log明细输出
+        contentBase: './',
+        //clientLogLevel: 'info', // 打包log明细输出
         port: 5566,
         hot: true, // 写到命令行中（--hot） 发生热加载时页面会刷新 而且会报内存溢出错误
         historyApiFallback: true,
-        open: 'http://localhost:5566'
     },
     optimization: {
         runtimeChunk: 'single',

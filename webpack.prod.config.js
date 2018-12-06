@@ -70,6 +70,7 @@ module.exports = {
     output: {
         filename: 'js/[name]_[chunkhash].js',
         path: BUILD_PATH,
+        publicPath: 'dist/',
         chunkFilename: 'js/chunk-[name]_[chunkhash].js'
     },
     resolve: {
@@ -203,7 +204,7 @@ module.exports = {
                     removeAll: true // 移除注释
                 }
             },
-            canPrint: true
+            canPrint: true // 插件是否可以将消息打印到控制台
         }),
 
         new webpack.HashedModuleIdsPlugin(), // 根据模块的相对路径生成一个四位数的hash作为模块id, 建议用于生产环境

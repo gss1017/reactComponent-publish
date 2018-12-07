@@ -8,5 +8,5 @@ mock*
 test*
 Test*
 eslint.js
-/src/index.html
+*.html
 postcss.config.js

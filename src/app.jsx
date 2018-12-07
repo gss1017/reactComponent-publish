@@ -13,6 +13,10 @@ const B = Loadable({
     loader: () => import('./pages/b'),
     loading: Loading
 });
+const C = Loadable({
+    loader: () => import('./pages/c'),
+    loading: Loading
+});
 
 class App extends React.Component {
 
@@ -30,6 +34,7 @@ class App extends React.Component {
                     <div>
                         <Route path="/a" component={A}/>
                         <Route path="/b" component={B}/>
+                        <Route path="/b/c" component={C}/>
                         <Link to="/a">to A</Link>
                         <br/>
                         <Link to="/b">to B</Link>

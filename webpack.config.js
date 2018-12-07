@@ -68,7 +68,8 @@ module.exports = {
     output: {
         filename: 'js/[name]_[hash].bundle.js',
         path: BUILD_PATH,
-        chunkFilename: 'js/chunk-[name]_[chunkhash].js'
+        chunkFilename: 'js/chunk-[name]_[chunkhash].js',
+        publicPath: '/'
     },
     resolve: {
       extensions: ['.js', '.jsx'] // webpack 编译时自动补充后缀

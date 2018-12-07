@@ -62,7 +62,6 @@
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "rm -rf ./dist && webpack --config webpack.prod.config.js",
-    "precommit": "lint-staged",
     "pack": "NODE_ENV=production npm pack"
   },
   "lint-staged": {

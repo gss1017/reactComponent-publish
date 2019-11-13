@@ -162,6 +162,16 @@ module.exports = {
         port: 5566,
         hot: true, // 写到命令行中（--hot） 发生热加载时页面会刷新 而且会报内存溢出错误
         historyApiFallback: true,
+        stats: {
+            cachedAssets: false,
+            chunks: false,
+            chunkModules: false,
+            chunkOrigins: false,
+            modules: false,
+            reasons: false,
+            colors: true,
+            usedExports: false
+        }
     },
     optimization: {
         runtimeChunk: 'single',
